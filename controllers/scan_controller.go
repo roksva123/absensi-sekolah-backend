@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"absensi-sekolah-backend/models"
 	"absensi-sekolah-backend/services"
 	"net/http"
 

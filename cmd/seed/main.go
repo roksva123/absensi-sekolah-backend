@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"time"
 
 	"absensi-sekolah-backend/config"
 	"absensi-sekolah-backend/models"
@@ -168,7 +169,7 @@ func SeedDatabase() error {
 	return nil
 }
 
-func parseTime(timeStr string) interface{} {
-	// This will be parsed by database driver as TIME type
-	return timeStr
+func parseTime(timeStr string) time.Time {
+	parsed, _ := time.Parse("15:04:05", timeStr)
+	return parsed
 }

@@ -10,7 +10,7 @@ type Siswa struct {
     NIS         string         `gorm:"size:20;unique;not null"`
     NISN        string         `gorm:"size:20;unique;not null"`
     Nama        string         `gorm:"size:100;not null"`
-    Gender      string         `gorm:"type:VARCHAR(1);not null" // L or P
+    Gender      string         `gorm:"type:VARCHAR(1);not null"` // L or P
     NamaOrtu    string         `gorm:"size:100"`
     UIDKartu    string         `gorm:"size:50;unique;not null"`
     StatusAktif bool           `gorm:"default:true"`

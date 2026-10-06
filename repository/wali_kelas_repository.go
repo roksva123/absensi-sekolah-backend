@@ -38,5 +38,5 @@ func GetWaliKelasByKelas(kelasID uint) (*models.WaliKelas, error) {
 func GetWaliKelasByUser(userID uint) ([]models.WaliKelas, error) {
 	var wali []models.WaliKelas
 	err := config.DB.Where("user_id = ?", userID).Find(&wali).Error
-	return &wali, err
+	return wali, err
 }
