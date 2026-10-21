@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 
 	"absensi-sekolah-backend/config"
+	"absensi-sekolah-backend/middleware"
 	"absensi-sekolah-backend/models"
 	"absensi-sekolah-backend/routes"
 )
@@ -29,6 +30,7 @@ func main() {
 	// Create Gin engine
 	r := gin.New()
 	r.Use(gin.Logger(), gin.Recovery())
+	r.Use(middleware.CORS())
 	if err := r.SetTrustedProxies(nil); err != nil {
 		log.Fatalf("Failed to set trusted proxies: %v", err)
 	}

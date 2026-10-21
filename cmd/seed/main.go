@@ -10,6 +10,25 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+func main() {
+	if err := config.InitDB(); err != nil {
+		log.Fatalf("Failed to connect to database: %v", err)
+	}
+
+	if err := config.DB.AutoMigrate(
+		&models.User{},
+		&models.Kelas{},
+		&models.Siswa{},
+		&models.PengaturanSistem{},
+	); err != nil {
+		log.Fatalf("Failed to run migrations: %v", err)
+	}
+
+	if err := SeedDatabase(); err != nil {
+		log.Fatalf("Failed to seed database: %v", err)
+	}
+}
+
 // SeedDatabase creates initial data for the system
 func SeedDatabase() error {
 	// Check if users already exist

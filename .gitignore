@@ -45,3 +45,7 @@ temp/
 # Binary output
 absensi-sekolah-backend
 absensi-backend
+
+# Local env files with secrets
+.env*
+!.env.example
